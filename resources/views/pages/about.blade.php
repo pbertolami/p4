@@ -2,6 +2,14 @@
 
 
 @section('content')
+    <style>
+        .list-group{
+            background: #b3c6ff !important;
+            border-color: #aed248;
+
+        }
+        body { background: #e5ecff !important; }
+    </style>
 <div class="container">
     <div class="row">
         <div class="col-md-6">
@@ -12,12 +20,13 @@
             <h1>Steps:</h1>
             <ul class="list-group">
                 <li class="list-group-item">Register on our website</li>
-                <li class="list-group-item">Once registered and signed in, click the "Create Profile" button from the top navigation bar. </li>
-                <li class="list-group-item">Fill the form out and hit "Submit" button.</li>
-                <li class="list-group-item">Drop in your headshot. If successful your picture will appear when you refresh your page.</li>
-                <li class="list-group-item">Update or Delete your profile submission at anytime before May 1st by signing in and hitting the "Update Profile" button this will take you to your form submission.</li>
+                <li class="list-group-item">Once registered and signed in, click onto the "About" Page. Then click the button "Enter The Competition" </li>
+                <li class="list-group-item">Fill the form out and hit "Submit" button. Be sure to read the instructions carefully.</li>
+                <li class="list-group-item">Drop in your headshot or shots. If successful your picture will appear when you refresh your page.</li>
+                <li class="list-group-item">This is the time to review your profile you have the option to Update or Delete your profile submission once you leave this page you are locked in to the contest.
+                    Should you decide to hit the "Update Profile" button, it will take you to your form for re-submission.</li>
             </ul>
-            <a class="btn btn-primary btn-lg btn-block" href='/profiles/create' role="button">Register For The Competition</a>
+            <a class="btn btn-primary btn-lg btn-block" href='/profiles/create' role="button">Enter The Competition</a>
 
 
         </div>

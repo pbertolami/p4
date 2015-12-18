@@ -90,12 +90,9 @@
 
                 </div>
 
+
                 <div class="form-group">
-                    <label for="mp3">Music File mp3 Only:</label>
-                    <input type="file" name="mp3" id="mp3" class="form-control" value="{{old('mp3')}}">
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Create Flyer</button>
+                    <button type="submit" class="btn btn-primary">Enter Contest</button>
                 </div>
             </div>
         </div>

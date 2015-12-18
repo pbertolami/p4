@@ -2,6 +2,9 @@
 
 
 @section('content')
+        <style>
+            body { background: navy !important; }
+        </style>
         <!--This is a Jumbotron from bootstrap-->
 <div class="jumbotron">
     <div class="container">
@@ -18,12 +21,14 @@
             a marketing department, costume directors, etc. In short their are many moving pieces each with a cost component and a time restraint.
             Many opera companies have been formed over the years and many have failed at this endeavor leaving quite frankly the industry if their
             ever was one in tatters.  We believe that this leaves us with an enormous opportunity. The current state of Opera in America has devolved to a pay
-            to play business model.  We feel that we must change this and will change this.  Our idea is to create a lobbying and economic devolopment like department, an opera "think tank" in order to make recommendations to local leaders when it
+            to play business model.  Ultimately this must change over time.  Our idea is to create a lobbying and economic devolopment like department, an opera "think tank" in order to make recommendations to local leaders when it
             comes to the arts.  Some of our strategies will be to use technology to our benefit including the use of simulcasts of our productions and to use vertical integration by owning our own symphony which will not only support our organization but
-            will be able to stand on its own.  We believe America has talent and are announcing our first vocal competition "The Laura Ann Heckmann Award" named after an American
+            will be able to stand on its own.  We believe America has talent and are announcing our first vocal competition "The Laura Ann Heckmann Award" named after a rising American
             soprano singer.  The award recognizes new young soprano singers between the ages of 18 and 24. This is an international competition where we hope to see the best of America go up against the best of the World
-            while the singers are still in their formative years.</p>
-        <p><a class="btn btn-primary btn-lg btn-block" href="/about" role="button">Learn More About The Competition</a></p>
+            while the singers are still in their formative years. We believe that competition is the ultimate crucible of fire for opera singers. As such it is extremely important for opera singers like any other sport to compete often.</p>
+
+            <p><a class="btn btn-primary btn-lg btn-block" href="/about" role="button">Learn More About The Competition</a></p>
+
     </div>
 </div>
 @stop

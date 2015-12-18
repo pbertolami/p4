@@ -3,6 +3,7 @@
 namespace P4;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Query\Builder;
 
 class Profile extends Model
 {
@@ -23,9 +24,31 @@ class Profile extends Model
         'aria_two_link',
         'description'
     ];
+
+
+    /*
+     * find a profile of a person by last_name
+     * Note: I could also use a scope query like so
+     *
+     * public function scopeWho($query, $last_name){
+     * return $query->where(compact('last_name'))->firstOrFail();
+     * }
+     * They said in class not to use static methods but I forget why
+     *
+     * POSSIBLY DELETE THIS
+     */
+    public static function who($first_name,$last_name){
+        return static::where(compact('first_name','last_name'))->firstOrFail();
+
+    }
+
+    public function addPhoto(Photo $photo){
+
+        return $this->photos()->save($photo);
+    }
     /**
      * A profile can have more than one (photo/headshot), probably
-     * only need one but want to have the flexability for more than one.
+     * only need one but want to have the flexibility for more than one.
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function photos()

@@ -145,6 +145,7 @@ return [
         P4\Providers\EventServiceProvider::class,
         P4\Providers\RouteServiceProvider::class,
         P4\Providers\ComposerServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
     ],
 
@@ -194,7 +195,7 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
-
+        'Image'     => Intervention\Image\Facades\Image::class,
     ],
 
 ];

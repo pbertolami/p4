@@ -10,10 +10,24 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+// Authentication routes...
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
+// Registration routes...
+Route::get('auth/register', 'Auth\AuthController@getRegister');
+Route::post('auth/register', 'Auth\AuthController@postRegister');
+
+
+
 Route::get('/', 'ProfileController@getIndex');
 Route::get('/profiles/all', 'ProfileController@getAll');
 
-Route::get('/profiles/create', 'ProfileController@getCreate');
+
+Route::get('/profiles/create', [
+    'middleware'=> 'auth',
+    'uses'=>'ProfileController@getCreate'
+]);
 Route::post('/profiles/create', 'ProfileController@postCreate');
 
 Route::get('/about', 'ProfileController@getAbout');
@@ -25,14 +39,10 @@ Route::get('/profiles/confirm-delete/{id?}', 'ProfileController@getConfirmDelete
 Route::get('/profiles/delete/{id?}', 'ProfileController@getDoDelete');
 
 Route::get('/profiles/show/{id?}', 'ProfileController@getShow');
+Route::get('/profiles/show/{first_name}/{last_name}','ProfileController@getShow');
+Route::post('/profiles/show/{first_name}/{last_name}/photos',['as' => 'store_photo_path', 'uses'=> 'ProfileController@addPhoto']);
 
-// Authentication routes...
-Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', 'Auth\AuthController@postLogin');
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
-// Registration routes...
-Route::get('auth/register', 'Auth\AuthController@getRegister');
-Route::post('auth/register', 'Auth\AuthController@postRegister');
+
 
 
 if(App::environment('local')) {

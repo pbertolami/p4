@@ -26,7 +26,7 @@ $factory->define(P4\Profile::class, function (Faker\Generator $faker) {
 
         'created_at'     => Carbon\Carbon::now()->toDateTimeString(),
         'updated_at'     => Carbon\Carbon::now()->toDateTimeString(),
-        //'user_id'        => factory('P4\User')->create()->id,
+        'user_id'        => factory('P4\User')->create()->id,
         'first_name'     =>$faker->firstName,
         'last_name'      =>$faker->lastName,
         'street'         =>$faker->streetName,

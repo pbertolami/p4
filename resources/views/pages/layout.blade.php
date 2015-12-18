@@ -17,6 +17,9 @@
             background-color: yellow;
             font-weight: bold;
         }
+        body { background: #e5ecff !important; }
+
+
     </style>
 
 
@@ -34,12 +37,16 @@
             </button>
             <a class="navbar-brand" href="#">Project Opera</a>
         </div>
+        <!--Note I am using the view Composer method of making the user
+        name available to all the views as discussed in lecture 13-->
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 @if(Auth::check())
                     <li class="active"><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <li><a href="/auth/logout">Log Out</a></li>
+                    <li class="navbar-text navbar-right">Hello {{$user->name}}</li>
 
                 @else
                     <li class="active"><a href="/">Home</a></li>
@@ -49,14 +56,7 @@
                 @endif
             </ul>
         </div>
-        <!--Note I am using the view Composer method of making the user
-        name available to all the views as discussed in lecture 13-->
-        @if (Auth::check())
-            <p class="navbar-text navbar-right">
-                Hello, {{$user->name}}
-            </p>
 
-        @endif
 
     </div><!--/.nav-collapse -->
     </div>

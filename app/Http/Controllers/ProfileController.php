@@ -2,11 +2,12 @@
 
 namespace P4\Http\Controllers;
 use P4\Profile;
+use P4\Http\Requests\ProfileRequest;
 use Illuminate\Http\Request;
 use P4\Photo;
 use P4\Http\Requests;
 use P4\Http\Controllers\Controller;
-use Symfony\Component\HttpFoundation\File\UploadFile;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class ProfileController extends Controller
 {
@@ -68,7 +69,7 @@ class ProfileController extends Controller
 
         //validates the form using a profile request! see App/Requests/ProfileRequest
 
-        $profile = \P4\Profile::findOrfail($request->id);
+        $profile =\P4\Profile::findOrfail($request->id);
 
         $input = $request->all();
 
@@ -80,7 +81,7 @@ class ProfileController extends Controller
     }
 
 
-
+    //This is the delete function that I use when the button is pushed
     public function getDoDelete($profile_id) {
 
         $profile = \P4\Profile::findOrfail($profile_id);
@@ -95,15 +96,31 @@ class ProfileController extends Controller
             return redirect('/');
     }
 
-    public function getShow($id = null)
+    /*
+     * this getShow shows the result of the static method who($last_name)
+     * which shows the profile of a person by $last_name
+     */
+    public function getShow($first_name,$last_name)
     {
-            $profile = \P4\Profile::findOrFail($id);
-
-             dump($profile->toArray());
+            $profile = Profile::who($first_name,$last_name);
 
             return view('pages.show')->with('profile', $profile);
     }
+    public function addPhoto($first_name, $last_name, Request $request){
 
+        $this->validate($request,[
+            'photo'=> 'required|mimes:jpg,jpeg,png,bmp'
+        ]);
+        $photo = $this->makePhoto($request->file('photo'));
+        //find the current profile and link to photo
+        #Profile::where('user_id','=',\Auth::id())->addPhoto($photo);
+        Profile::who($first_name, $last_name)->addPhoto($photo);
+    }
+    //this creates a photo named with the name of the person who uploaded it
+    protected function makePhoto(UploadedFile $file){
+        return Photo::named($file->getClientOriginalName())
+            ->move($file);
+    }
 
 
 }

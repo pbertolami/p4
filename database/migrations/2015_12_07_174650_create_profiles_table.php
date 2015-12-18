@@ -27,9 +27,9 @@ class CreateProfilesTable extends Migration
             $table->string('country', 40);
             $table->string('school',60);
             $table->string('aria_one_name',100);
-            $table->string('aria_one_link', 150);
+            $table->string('aria_one_link',170);
             $table->string('aria_two_name',100);
-            $table->string('aria_two_link', 150);
+            $table->string('aria_two_link',170);
             $table->text('description');
             $table->timestamps();
         });
